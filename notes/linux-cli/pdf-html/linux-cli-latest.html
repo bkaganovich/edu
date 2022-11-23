@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.2">
+<title>kern-linux-notes</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<h1>Linux Command-line interface</h1>
+<p><strong>Table of Contents:</strong></p>
+<ul>
+<li><a href="#package-management">Package management</a></li>
+<li><a href="#shell">Shell</a></li>
+<li><a href="#files-and-filesystem-navigation">Files and filesystem navigation</a></li>
+<li><a href="#text-editing">Text editing</a></li>
+<li><a href="#users-and-groups">Users and groups</a></li>
+<li><a href="#change-permissions-ownership-and-groups">Change permissions, ownership, and groups</a></li>
+<li><a href="#processes-and-system">Processes and system</a></li>
+<li><a href="#networking">Networking</a></li>
+</ul>
+<p><br>
+<br>
+<code>Last updated: Wed 23 Nov 2022 18:54</code></p>
+<div style="page-break-before: always"></div>
+
+<h1 id="package-management">Package management</h1>
+
+<p><em>Debian</em></p>
+<h3>apt</h3>
+<pre><code class="language-bash">apt install packagename
+apt remove packagename
+apt purge packagename
+apt update
+apt upgrade
+</code></pre>
+<h3>dpkg</h3>
+<pre><code class="language-bash">dpkg -i package.deb
+</code></pre>
+<p><em>Red Hat (RHEL, CentOS, Fedora)</em></p>
+<h3>dnf</h3>
+<pre><code class="language-bash">dnf install packagename
+dnf remove packagename
+dnf update
+</code></pre>
+<h3>rpm</h3>
+<pre><code class="language-bash">rpm -i package.rpm
+</code></pre>
+<p><em>Arch</em></p>
+<h3>pacman</h3>
+<pre><code class="language-bash">pacman -S packagename
+pacman -Syu
+</code></pre>
+<div style="page-break-before: always"></div>
+
+<h1 id="shell">Shell</h1>
+
+<h3>echo</h3>
+<pre><code class="language-bash">echo -e &quot;line1\nline2&quot; #enable interpretation of backslash escapes
+echo -n #do not output trailing newline
+</code></pre>
+<h3>man</h3>
+<h3>history</h3>
+<div style="page-break-before: always"></div>
+
+<h1 id="files-and-filesystem-navigation">Files and filesystem navigation</h1>
+
+<h3>pwd</h3>
+<h3>ls</h3>
+<pre><code class="language-bash">ls -R #recursive list
+ls -r #reverse order while sorting
+ls -S #sort by size
+ls -shal #print size, human-readable, all, long listing format
+</code></pre>
+<h3>tree</h3>
+<pre><code class="language-bash">tree -a -L 1 #tree 1 level all files, says &quot;x directories, y files&quot;
+</code></pre>
+<h3>cd</h3>
+<h3>mkdir</h3>
+<h3>rmdir</h3>
+<h3>touch</h3>
+<pre><code class="language-bash">touch newfile.txt #creates newfile.txt
+touch newfile.txt #if newfile.txt exists: updates time, no overwrite
+</code></pre>
+<h3>rm</h3>
+<pre><code class="language-bash">rm -r directory/ #recursive dir removal
+</code></pre>
+<h3>cp</h3>
+<pre><code class="language-bash">cp -R mydir/ destination/ #recursive dir copy
+cp -v file.txt destination/ #verbose
+</code></pre>
+<h3>mv</h3>
+<h3>cat</h3>
+<pre><code class="language-bash">cat -n file.txt #show line numbers
+</code></pre>
+<h3>grep</h3>
+<pre><code class="language-bash">grep -r #recursive
+grep -v #select non-matching lines
+grep -R #follow all symlinks
+grep -l #print only names of FILEs with selected lines
+grep -A 2 #print NUM lines of trailing context
+grep -B 3 #print NUM lines of leading context
+</code></pre>
+<h3>less</h3>
+<h3>more</h3>
+<h3>tail</h3>
+<pre><code class="language-bash">tail -n 3 file.txt #last 3 lines
+</code></pre>
+<h3>head</h3>
+<pre><code class="language-bash">head -n 20 file.txt #first 20 lines
+head -c 5k file.txt #first 5k bytes in size
+</code></pre>
+<h3>wc</h3>
+<pre><code class="language-bash">wc -c file.txt #byte count
+wc -m file.txt #character count
+wc -w file.txt #word count
+wc -l file.txt #line count
+</code></pre>
+<h3>sort</h3>
+<pre><code class="language-bash">sort -n nums.txt #ascending sort
+sort -nr nums.txt #descending sort
+sort -hr nums.txt #descending sort
+</code></pre>
+<h3>uniq</h3>
+<pre><code class="language-bash">uniq -c nums.txt #unique lines
+</code></pre>
+<h3>file</h3>
+<h3>watch</h3>
+<div style="page-break-before: always"></div>
+
+<h1 id="text-editing">Text editing</h1>
+
+<h3>nano</h3>
+<div style="page-break-before: always"></div>
+
+<h1 id="users-and-groups">Users and groups</h1>
+
+<h3>adduser</h3>
+<h3>useradd</h3>
+<h3>userdel</h3>
+<h3>usermod</h3>
+<pre><code class="language-bash">usermod -a -G grpname username
+</code></pre>
+<h3>sudo</h3>
+<h3>su</h3>
+<h3>id</h3>
+<h3>whoami</h3>
+<h3>passwd</h3>
+<div style="page-break-before: always"></div>
+
+<h1 id="change-permissions-ownership-and-groups">Change permissions, ownership, and groups</h1>
+
+<h3>chmod</h3>
+<pre><code class="language-bash">chmod +x file.sh #give execution permission
+chmod 777 file.sh #give all permissions
+</code></pre>
+<h3>chown</h3>
+<pre><code class="language-bash">chown userowner:usergrp file.sh
+</code></pre>
+<h3>chgrp</h3>
+<pre><code class="language-bash">chgrp staff /u #Change the group of /u to &quot;staff&quot;
+chgrp -hR staff /u  #Change the group of /u and subfiles to &quot;staff&quot;
+</code></pre>
+<div style="page-break-before: always"></div>
+
+<h1 id="processes-and-system">Processes and system</h1>
+
+<h3>ps</h3>
+<pre><code class="language-bash">ps -a
+ps -u #display process user/owner
+ps -x #processes not attached to terminal
+</code></pre>
+<h3>top</h3>
+<h3>kill</h3>
+<pre><code class="language-bash">kill pid
+kill -9 pid #force kill
+</code></pre>
+<h3>systemctl</h3>
+<pre><code class="language-bash">systemctl status sshd #status of ssh daemon service
+systemctl stop sshd
+systemctl start sshd
+systemctl enable sshd
+systemctl reboot
+</code></pre>
+<h3>service</h3>
+<pre><code class="language-bash">service sshd status #status of ssh daemon service
+service sshd stop
+service sshd start
+service sshd restart
+</code></pre>
+<h3>reboot</h3>
+<h3>shutdown</h3>
+<pre><code class="language-bash">shutdown -h now #halt
+</code></pre>
+<h3>date</h3>
+<h3>uptime</h3>
+<h3>uname</h3>
+<pre><code class="language-bash">uname -a
+</code></pre>
+<div style="page-break-before: always"></div>
+
+<h1 id="networking">Networking</h1>
+
+<h3>ping</h3>
+<h3>wget</h3>
+<h3>curl</h3>
+<pre><code class="language-bash">curl -o file.tar.gz http://server/file2.tar.gz #Write to file instead of stdout
+curl -u username:password ftp://server/
+</code></pre>
+<h3>traceroute</h3>
+<h3>ifconfig</h3>
+<h3>ip</h3>
+<h3>netstat</h3>
+<pre><code class="language-bash">netstat -at #all tcp
+netstat -au #all udp
+netstat -p #show process
+</code></pre>
+<h3>nmap</h3>
+<h3>ssh</h3>
+<pre><code class="language-bash">ssh user@host
+</code></pre>
+<h3>scp</h3>
+<pre><code class="language-bash">scp user@host:/home/user/file.txt destination/
+</code></pre>
+
+</body>
+</html>
