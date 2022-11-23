@@ -23,6 +23,7 @@ more
 tail
 head
 wc
+sort
 uniq
 file
 watch
