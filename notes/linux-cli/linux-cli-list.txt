@@ -23,9 +23,11 @@ more
 tail
 head
 wc
+cut
 sort
 uniq
 file
+find
 watch
 nano
 adduser
