@@ -13,7 +13,7 @@
 
 <br>
 
-`Last updated: Wed 23 Nov 2022 20:03`
+`Last updated: Wed 23 Nov 2022 23:08`
 
 <br>
 
@@ -171,6 +171,8 @@ wc -w file.txt #word count
 wc -l file.txt #line count
 ```
 
+### cut
+
 ### sort
 
 ```bash
@@ -188,6 +190,12 @@ uniq -c nums.txt #unique lines
 ### file
 
 ### watch
+
+### find
+
+```bash
+find / -name myfile.txt
+```
 
 <div style="page-break-before: always"></div>
 
@@ -312,6 +320,10 @@ uname -a
 
 ### wget
 
+```bash
+wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip #wget speed test
+```
+
 ### curl
 
 ```bash
@@ -323,7 +335,17 @@ curl -u username:password ftp://server/
 
 ### ifconfig
 
+```bash
+ifconfig eth0
+ifconfig eth0 up
+ifconfig eth0 down
+```
+
 ### ip
+
+```bash
+ip a
+```
 
 ### netstat
 
