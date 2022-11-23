@@ -26,7 +26,7 @@ img { max-width: 100%; }
 <li><a href="#networking">Networking</a></li>
 </ul>
 <p><br></p>
-<p><code>Last updated: Wed 23 Nov 2022 20:03</code></p>
+<p><code>Last updated: Wed 23 Nov 2022 23:08</code></p>
 <p><br></p>
 <div style="page-break-before: always"></div>
 
@@ -122,6 +122,7 @@ wc -m file.txt #character count
 wc -w file.txt #word count
 wc -l file.txt #line count
 </code></pre>
+<h3>cut</h3>
 <h3>sort</h3>
 <pre><code class="language-bash">sort -n nums.txt #ascending sort
 sort -nr nums.txt #descending sort
@@ -132,6 +133,9 @@ sort -hr nums.txt #descending sort
 </code></pre>
 <h3>file</h3>
 <h3>watch</h3>
+<h3>find</h3>
+<pre><code class="language-bash">find / -name myfile.txt
+</code></pre>
 <div style="page-break-before: always"></div>
 
 <h1 id="text-editing">Text editing</h1>
@@ -209,13 +213,21 @@ service sshd restart
 
 <h3>ping</h3>
 <h3>wget</h3>
+<pre><code class="language-bash">wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip #wget speed test
+</code></pre>
 <h3>curl</h3>
 <pre><code class="language-bash">curl -o file.tar.gz http://server/file2.tar.gz #Write to file instead of stdout
 curl -u username:password ftp://server/
 </code></pre>
 <h3>traceroute</h3>
 <h3>ifconfig</h3>
+<pre><code class="language-bash">ifconfig eth0
+ifconfig eth0 up
+ifconfig eth0 down
+</code></pre>
 <h3>ip</h3>
+<pre><code class="language-bash">ip a
+</code></pre>
 <h3>netstat</h3>
 <pre><code class="language-bash">netstat -at #all tcp
 netstat -au #all udp
