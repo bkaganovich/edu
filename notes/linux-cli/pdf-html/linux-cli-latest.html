@@ -14,19 +14,21 @@ img { max-width: 100%; }
 </head>
 <body>
 <h1>Linux Command-line interface</h1>
-<p><strong>Table of Contents:</strong></p>
+<p><strong>Table of Contents</strong></p>
 <ul>
 <li><a href="#package-management">Package management</a></li>
 <li><a href="#shell">Shell</a></li>
-<li><a href="#files-and-filesystem-navigation">Files and filesystem navigation</a></li>
-<li><a href="#text-editing">Text editing</a></li>
+<li><a href="#filesystem-navigation">Filesystem navigation</a></li>
+<li><a href="#file-reading-and-manipulation">File reading and manipulation</a></li>
+<li><a href="#archives-and-encryption">Archives and encryption</a></li>
 <li><a href="#users-and-groups">Users and groups</a></li>
-<li><a href="#change-permissions-ownership-and-groups">Change permissions, ownership, and groups</a></li>
+<li><a href="#permissions-ownership-and-groups">Permissions, ownership, and groups</a></li>
 <li><a href="#processes-and-system">Processes and system</a></li>
 <li><a href="#networking">Networking</a></li>
+<li><a href="#reconnaissance-tools">Reconnaissance tools</a></li>
 </ul>
 <p><br></p>
-<p><code>Last updated: Wed 23 Nov 2022 23:08</code></p>
+<p><code>Last updated: Wed 26 Nov 2022 22:05</code></p>
 <p><br></p>
 <div style="page-break-before: always"></div>
 
@@ -57,8 +59,7 @@ dnf update
 <pre><code class="language-bash">pacman -S packagename
 pacman -Syu
 </code></pre>
-<div style="page-break-before: always"></div>
-
+<p><br></p>
 <h1 id="shell">Shell</h1>
 
 <h3>echo</h3>
@@ -69,7 +70,7 @@ echo -n #do not output trailing newline
 <h3>history</h3>
 <div style="page-break-before: always"></div>
 
-<h1 id="files-and-filesystem-navigation">Files and filesystem navigation</h1>
+<h1 id="filesystem-navigation">Filesystem navigation</h1>
 
 <h3>pwd</h3>
 <h3>ls</h3>
@@ -88,6 +89,7 @@ ls -shal #print size, human-readable, all, long listing format
 <pre><code class="language-bash">touch newfile.txt #creates newfile.txt
 touch newfile.txt #if newfile.txt exists: updates time, no overwrite
 </code></pre>
+<h3>nano</h3>
 <h3>rm</h3>
 <pre><code class="language-bash">rm -r directory/ #recursive dir removal
 </code></pre>
@@ -96,6 +98,19 @@ touch newfile.txt #if newfile.txt exists: updates time, no overwrite
 cp -v file.txt destination/ #verbose
 </code></pre>
 <h3>mv</h3>
+<div style="page-break-before: always"></div>
+
+<h1 id="file-reading-and-manipulation">File reading and manipulation</h1>
+
+<h3>less</h3>
+<h3>more</h3>
+<h3>tail</h3>
+<pre><code class="language-bash">tail -n 3 file.txt #last 3 lines
+</code></pre>
+<h3>head</h3>
+<pre><code class="language-bash">head -n 20 file.txt #first 20 lines
+head -c 5k file.txt #first 5k bytes in size
+</code></pre>
 <h3>cat</h3>
 <pre><code class="language-bash">cat -n file.txt #show line numbers
 </code></pre>
@@ -107,47 +122,55 @@ grep -l #print only names of FILEs with selected lines
 grep -A 2 #print NUM lines of trailing context
 grep -B 3 #print NUM lines of leading context
 </code></pre>
-<h3>less</h3>
-<h3>more</h3>
-<h3>tail</h3>
-<pre><code class="language-bash">tail -n 3 file.txt #last 3 lines
+<h3>cut</h3>
+<pre><code class="language-bash">cut -b 5 file.txt #get first 5 bytes in each line
+cut -c 2,5,7 file.txt #get chars at 2nd, 5th, 7th place in each line
 </code></pre>
-<h3>head</h3>
-<pre><code class="language-bash">head -n 20 file.txt #first 20 lines
-head -c 5k file.txt #first 5k bytes in size
+<h3>sort</h3>
+<pre><code class="language-bash">sort -n nums.txt #ascending sort
+sort -nr nums.txt #descending sort
+sort -hr nums.txt #descending sort
+sort -nu #numeric unique sort
 </code></pre>
+<h3>uniq</h3>
+<pre><code class="language-bash">uniq -c nums.txt #unique lines count, requires sorted list
+</code></pre>
+<h3>watch</h3>
+<h3>find</h3>
+<pre><code class="language-bash">find / -name myfile.txt
+</code></pre>
+<h3>file</h3>
+<h3>stat</h3>
 <h3>wc</h3>
 <pre><code class="language-bash">wc -c file.txt #byte count
 wc -m file.txt #character count
 wc -w file.txt #word count
 wc -l file.txt #line count
 </code></pre>
-<h3>cut</h3>
-<h3>sort</h3>
-<pre><code class="language-bash">sort -n nums.txt #ascending sort
-sort -nr nums.txt #descending sort
-sort -hr nums.txt #descending sort
-</code></pre>
-<h3>uniq</h3>
-<pre><code class="language-bash">uniq -c nums.txt #unique lines
-</code></pre>
-<h3>file</h3>
-<h3>watch</h3>
-<h3>find</h3>
-<pre><code class="language-bash">find / -name myfile.txt
-</code></pre>
 <div style="page-break-before: always"></div>
 
-<h1 id="text-editing">Text editing</h1>
+<h1 id="archives-and-encryption">Archives and encryption</h1>
 
-<h3>nano</h3>
+<h3>tar</h3>
+<pre><code class="language-bash">tar -czvf output.tar.gz input-dir/ #create gzip file verbose
+tar -xvf file.tar.gz #extract file verbose
+</code></pre>
+<h3>zip</h3>
+<h3>unzip</h3>
+<h3>mcrypt</h3>
+<pre><code class="language-bash">mcrypt backup.txt
+rm backup.txt
+mcrypt -d backup.txt.nc
+</code></pre>
 <div style="page-break-before: always"></div>
 
 <h1 id="users-and-groups">Users and groups</h1>
 
 <h3>adduser</h3>
 <h3>useradd</h3>
+<h3>groupadd</h3>
 <h3>userdel</h3>
+<h3>groupdel</h3>
 <h3>usermod</h3>
 <pre><code class="language-bash">usermod -a -G grpname username
 </code></pre>
@@ -155,10 +178,12 @@ sort -hr nums.txt #descending sort
 <h3>su</h3>
 <h3>id</h3>
 <h3>whoami</h3>
+<h3>who</h3>
+<h3>w</h3>
+<h3>last</h3>
 <h3>passwd</h3>
-<div style="page-break-before: always"></div>
-
-<h1 id="change-permissions-ownership-and-groups">Change permissions, ownership, and groups</h1>
+<p><br></p>
+<h1 id="permissions-ownership-and-groups">Permissions, ownership, and groups</h1>
 
 <h3>chmod</h3>
 <pre><code class="language-bash">chmod +x file.sh #give execution permission
@@ -179,6 +204,10 @@ chgrp -hR staff /u  #Change the group of /u and subfiles to &quot;staff&quot;
 <pre><code class="language-bash">ps -a
 ps -u #display process user/owner
 ps -x #processes not attached to terminal
+</code></pre>
+<h3>free</h3>
+<pre><code>bash
+free -h #free and used memory (RAM) in system human-readable
 </code></pre>
 <h3>top</h3>
 <h3>kill</h3>
@@ -207,13 +236,32 @@ service sshd restart
 <h3>uname</h3>
 <pre><code class="language-bash">uname -a
 </code></pre>
+<h3>hostname</h3>
+<h3>locale</h3>
+<h3>dmesg</h3>
+<h3>df</h3>
+<pre><code class="language-bash">df -h #file system space usage human-readable
+</code></pre>
+<h3>fdisk</h3>
+<pre><code class="language-bash">fdisk -l
+fdisk /dev/sdb
+</code></pre>
+<h3>mkfs</h3>
+<pre><code class="language-bash">mkfs.ext4 /dev/sdb1
+</code></pre>
+<h3>lsblk</h3>
+<h3>mount</h3>
+<pre><code class="language-bash">mount /dev/sdb1/ /media/usb
+</code></pre>
 <div style="page-break-before: always"></div>
 
 <h1 id="networking">Networking</h1>
 
 <h3>ping</h3>
+<h3>host</h3>
 <h3>wget</h3>
 <pre><code class="language-bash">wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip #wget speed test
+wget file.sh | run #download sh and run it
 </code></pre>
 <h3>curl</h3>
 <pre><code class="language-bash">curl -o file.tar.gz http://server/file2.tar.gz #Write to file instead of stdout
@@ -228,17 +276,39 @@ ifconfig eth0 down
 <h3>ip</h3>
 <pre><code class="language-bash">ip a
 </code></pre>
+<h3>dhclient</h3>
+<h3>iftop</h3>
 <h3>netstat</h3>
 <pre><code class="language-bash">netstat -at #all tcp
 netstat -au #all udp
 netstat -p #show process
 </code></pre>
-<h3>nmap</h3>
 <h3>ssh</h3>
 <pre><code class="language-bash">ssh user@host
 </code></pre>
 <h3>scp</h3>
 <pre><code class="language-bash">scp user@host:/home/user/file.txt destination/
+</code></pre>
+<div style="page-break-before: always"></div>
+
+<h1 id="reconnaissance-tools">Reconnaissance tools</h1>
+
+<h3>nmap</h3>
+<h3>whois</h3>
+<h3>theHarvester</h3>
+<pre><code class="language-bash">theHarvester -d google.com -l 300 -b all #domain, limit, source
+</code></pre>
+<h3>recon-ng</h3>
+<pre><code class="language-bash">recon-ng
+&gt; help
+&gt; marketplace info all
+&gt; marketplace search all
+&gt; marketplace install recon/domains-hosts/hackertarget
+&gt; modules load recon/domains-hosts/hackertarget
+&gt; info
+&gt; options set SOURCE yahoo.com
+&gt; run
+&gt; show hosts
 </code></pre>
 
 </body>
