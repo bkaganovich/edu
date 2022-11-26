@@ -15,7 +15,7 @@
 
 <br>
 
-`Last updated: Wed 26 Nov 2022 22:05`
+`Last updated: Wed 26 Nov 2022 23:01`
 
 <br>
 
@@ -405,7 +405,7 @@ mount /dev/sdb1/ /media/usb
 
 ```bash
 wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip #wget speed test
-wget file.sh | run #download sh and run it
+wget file.sh | sh #download shell script and run it
 ```
 
 ### curl
