@@ -1,19 +1,21 @@
 # Linux Command-line interface
 
-**Table of Contents:**
+**Table of Contents**
 
 - [Package management](#package-management)
 - [Shell](#shell)
-- [Files and filesystem navigation](#files-and-filesystem-navigation)
-- [Text editing](#text-editing)
+- [Filesystem navigation](#filesystem-navigation)
+- [File reading and manipulation](#file-reading-and-manipulation)
+- [Archives and encryption](#archives-and-encryption)
 - [Users and groups](#users-and-groups)
-- [Change permissions, ownership, and groups](#change-permissions-ownership-and-groups)
+- [Permissions, ownership, and groups](#permissions-ownership-and-groups)
 - [Processes and system](#processes-and-system)
 - [Networking](#networking)
+- [Reconnaissance tools](#reconnaissance-tools)
 
 <br>
 
-`Last updated: Wed 23 Nov 2022 23:08`
+`Last updated: Wed 26 Nov 2022 22:05`
 
 <br>
 
@@ -64,7 +66,7 @@ pacman -S packagename
 pacman -Syu
 ```
 
-<div style="page-break-before: always"></div>
+<br>
 
 <h1 id="shell">Shell</h1>
 
@@ -81,7 +83,7 @@ echo -n #do not output trailing newline
 
 <div style="page-break-before: always"></div>
 
-<h1 id="files-and-filesystem-navigation">Files and filesystem navigation</h1>
+<h1 id="filesystem-navigation">Filesystem navigation</h1>
 
 ### pwd
 
@@ -113,6 +115,8 @@ touch newfile.txt #creates newfile.txt
 touch newfile.txt #if newfile.txt exists: updates time, no overwrite
 ```
 
+### nano
+
 ### rm
 
 ```bash
@@ -128,22 +132,9 @@ cp -v file.txt destination/ #verbose
 
 ### mv
 
-### cat
+<div style="page-break-before: always"></div>
 
-```bash
-cat -n file.txt #show line numbers
-```
-
-### grep
-
-```bash
-grep -r #recursive
-grep -v #select non-matching lines
-grep -R #follow all symlinks
-grep -l #print only names of FILEs with selected lines
-grep -A 2 #print NUM lines of trailing context
-grep -B 3 #print NUM lines of leading context
-```
+<h1 id="file-reading-and-manipulation">File reading and manipulation</h1>
 
 ### less
 
@@ -162,16 +153,29 @@ head -n 20 file.txt #first 20 lines
 head -c 5k file.txt #first 5k bytes in size
 ```
 
-### wc
+### cat
 
 ```bash
-wc -c file.txt #byte count
-wc -m file.txt #character count
-wc -w file.txt #word count
-wc -l file.txt #line count
+cat -n file.txt #show line numbers
+```
+
+### grep
+
+```bash
+grep -r #recursive
+grep -v #select non-matching lines
+grep -R #follow all symlinks
+grep -l #print only names of FILEs with selected lines
+grep -A 2 #print NUM lines of trailing context
+grep -B 3 #print NUM lines of leading context
 ```
 
 ### cut
+
+```bash
+cut -b 5 file.txt #get first 5 bytes in each line
+cut -c 2,5,7 file.txt #get chars at 2nd, 5th, 7th place in each line
+```
 
 ### sort
 
@@ -179,15 +183,14 @@ wc -l file.txt #line count
 sort -n nums.txt #ascending sort
 sort -nr nums.txt #descending sort
 sort -hr nums.txt #descending sort
+sort -nu #numeric unique sort
 ```
 
 ### uniq
 
 ```bash
-uniq -c nums.txt #unique lines
+uniq -c nums.txt #unique lines count, requires sorted list
 ```
-
-### file
 
 ### watch
 
@@ -197,22 +200,55 @@ uniq -c nums.txt #unique lines
 find / -name myfile.txt
 ```
 
+### file
+
+### stat
+
+### wc
+
+```bash
+wc -c file.txt #byte count
+wc -m file.txt #character count
+wc -w file.txt #word count
+wc -l file.txt #line count
+```
+
 <div style="page-break-before: always"></div>
 
-<h1 id="text-editing">Text editing</h1>
+<h1 id="archives-and-encryption">Archives and encryption</h1>
 
-### nano
+### tar
+
+```bash
+tar -czvf output.tar.gz input-dir/ #create gzip file verbose
+tar -xvf file.tar.gz #extract file verbose
+```
+
+### zip
+
+### unzip
+
+### mcrypt
+
+```bash
+mcrypt backup.txt
+rm backup.txt
+mcrypt -d backup.txt.nc
+```
 
 <div style="page-break-before: always"></div>
 
 <h1 id="users-and-groups">Users and groups</h1>
 
-
 ### adduser
 
 ### useradd
 
+### groupadd
+
 ### userdel
+
+### groupdel
 
 ### usermod
 
@@ -228,11 +264,16 @@ usermod -a -G grpname username
 
 ### whoami
 
+### who
+
+### w
+
+### last
+
 ### passwd
 
-<div style="page-break-before: always"></div>
-
-<h1 id="change-permissions-ownership-and-groups">Change permissions, ownership, and groups</h1>
+<br>
+<h1 id="permissions-ownership-and-groups">Permissions, ownership, and groups</h1>
 
 ### chmod
 
@@ -264,6 +305,13 @@ chgrp -hR staff /u  #Change the group of /u and subfiles to "staff"
 ps -a
 ps -u #display process user/owner
 ps -x #processes not attached to terminal
+```
+
+### free
+
+```
+bash
+free -h #free and used memory (RAM) in system human-readable
 ```
 
 ### top
@@ -312,16 +360,52 @@ shutdown -h now #halt
 uname -a
 ```
 
+### hostname
+
+### locale
+
+### dmesg
+
+### df
+
+```bash
+df -h #file system space usage human-readable
+```
+
+### fdisk
+
+```bash
+fdisk -l
+fdisk /dev/sdb
+```
+
+### mkfs
+
+```bash
+mkfs.ext4 /dev/sdb1
+```
+
+### lsblk
+
+### mount
+
+```bash
+mount /dev/sdb1/ /media/usb
+```
+
 <div style="page-break-before: always"></div>
 
 <h1 id="networking">Networking</h1>
 
 ### ping
 
+### host
+
 ### wget
 
 ```bash
 wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip #wget speed test
+wget file.sh | run #download sh and run it
 ```
 
 ### curl
@@ -347,6 +431,10 @@ ifconfig eth0 down
 ip a
 ```
 
+### dhclient
+
+### iftop
+
 ### netstat
 
 ```bash
@@ -354,8 +442,6 @@ netstat -at #all tcp
 netstat -au #all udp
 netstat -p #show process
 ```
-
-### nmap
 
 ### ssh
 
@@ -367,4 +453,33 @@ ssh user@host
 
 ```bash
 scp user@host:/home/user/file.txt destination/
+```
+
+<div style="page-break-before: always"></div>
+
+<h1 id="reconnaissance-tools">Reconnaissance tools</h1>
+
+### nmap
+
+### whois
+
+### theHarvester
+
+```bash
+theHarvester -d google.com -l 300 -b all #domain, limit, source
+```
+
+### recon-ng
+
+```bash
+recon-ng
+> help
+> marketplace info all
+> marketplace search all
+> marketplace install recon/domains-hosts/hackertarget
+> modules load recon/domains-hosts/hackertarget
+> info
+> options set SOURCE yahoo.com
+> run
+> show hosts
 ```
