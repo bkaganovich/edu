@@ -83,7 +83,17 @@ iftop
 netstat
 ssh
 scp
+nc
 nmap
+masscan
 whois
 theHarvester
 recon-ng
+sublist3r
+dig
+dirsearch
+fping
+netdiscover
+msfdb
+msfconsole
+msfvenom
