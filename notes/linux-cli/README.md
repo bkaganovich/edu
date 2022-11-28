@@ -1,1 +1,1 @@
-md/linux-cli-latest-html.md
+linux-cli-latest.md
