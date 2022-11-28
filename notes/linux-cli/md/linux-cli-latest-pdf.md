@@ -20,7 +20,7 @@
 
 <br>
 
-`Last updated: Mon 28 Nov 2022 16:26 IST`
+`Last updated: Mon 28 Nov 2022 17:07 IST`
 
 <br>
 
@@ -501,7 +501,7 @@ scp user@host:/home/user/file.txt destination/
 
 ### nc
 
-See [exploitation#nc](exploitation.md#nc)
+See [cyber/exploitation#nc](../../cyber/exploitation.md#nc)
 
 ```bash
 nc -l -p 4444 #listen for inbound connections, local port
@@ -581,7 +581,7 @@ fping -gaq 192.168.1.0/24 #ping connectivity test
 
 <h1 id="metasploit-framework">Metasploit Framework</h1>
 
-See [exploitation#metasploit-framework](exploitation.md#metasploit-framework)
+See [cyber/exploitation#metasploit-framework](../../cyber/exploitation.md#metasploit-framework)
 
 ### msfdb
 
@@ -593,7 +593,7 @@ msfdb stop
 
 ### msfconsole
 
-See [exploitation#msfconsole](exploitation.md#msfconsole)
+See [cyber/exploitation#msfconsole](../../cyber/exploitation.md#msfconsole)
 
 ```bash
 help
@@ -604,7 +604,7 @@ use exploit/unix/ftp/vsftpd_234_backdoor
 
 ### msfvenom
 
-See [exploitation#msfvenom](exploitation.md#msfvenom)
+See [cyber/exploitation#msfvenom](../../cyber/exploitation.md#msfvenom)
 
 ```bash
 msfvenom -h
