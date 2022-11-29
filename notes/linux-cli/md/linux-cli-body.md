@@ -1,14 +1,14 @@
 <!-- end table of contents -->
 
-<!-- linux-cli-body.md -->
+<!-- /notes/linux-cli/md/linux-cli-body.md -->
 
 <br>
 
-`Last updated: Mon 28 Nov 2022 17:07 IST`
+`Last updated: Tue 29 Nov 2022 08:58 IST`
 
 <br>
 
-<div style="page-break-before: always"></div>
+<!--<div style="page-break-before: always"></div>-->
 
 <h1 id="package-management">Package management</h1>
 
@@ -56,7 +56,6 @@ pacman -Syu
 ```
 
 <br>
-
 <h1 id="shell">Shell</h1>
 
 ### echo
@@ -71,8 +70,7 @@ echo *.log #print all .log files in dir
 
 ### history
 
-<div style="page-break-before: always"></div>
-
+<br>
 <h1 id="filesystem-navigation">Filesystem navigation</h1>
 
 ### pwd
@@ -94,6 +92,7 @@ tree -a -L 1 #tree 1 level all files, says "x directories, y files"
 
 ### cd
 
+<br>
 <h1 id="directory-and-file-operations">Directory and file operations</h1>
 
 ### mkdir
@@ -129,8 +128,7 @@ cp -v file.txt destination/ #verbose
 
 ### mv
 
-<div style="page-break-before: always"></div>
-
+<br>
 <h1 id="file-reading-and-manipulation">File reading and manipulation</h1>
 
 ### less
@@ -215,8 +213,7 @@ wc -w file.txt #word count
 wc -l file.txt #line count
 ```
 
-<div style="page-break-before: always"></div>
-
+<br>
 <h1 id="archives-and-encryption">Archives and encryption</h1>
 
 ### tar
@@ -243,9 +240,10 @@ rm backup.txt
 mcrypt -d backup.txt.nc
 ```
 
-<div style="page-break-before: always"></div>
-
+<br>
 <h1 id="users-and-groups">Users and groups</h1>
+
+Related [linux-fs/important-sys-files](../../linux-fs/important-sys-files.md)
 
 ### adduser
 
@@ -283,6 +281,8 @@ usermod -aG sudo username #add user to sudo group
 <br>
 <h1 id="permissions-ownership-and-groups">Permissions, ownership, and groups</h1>
 
+Related [linux-fs/important-sys-files](../../linux-fs/important-sys-files.md)
+
 ### chmod
 
 ```bash
@@ -303,6 +303,7 @@ chgrp staff /u #change the group of /u to "staff"
 chgrp -hR staff /u  #change the group of /u and subfiles to "staff"
 ```
 
+<br>
 <h1 id="processes-and-system">Processes and system</h1>
 
 ### ps
@@ -398,8 +399,7 @@ mkfs.ext4 /dev/sdb1
 mount /dev/sdb1 /media/usb
 ```
 
-<div style="page-break-before: always"></div>
-
+<br>
 <h1 id="networking">Networking</h1>
 
 ### ping
@@ -490,11 +490,10 @@ See [cyber/exploitation#nc](../../cyber/exploitation.md#nc)
 ```bash
 nc -l -p 4444 #listen for inbound connections, local port
 nc 10.8.22.123 4444 #tcp connection to ip and port
-nc -lvp 7777 -e /bin/bash
+nc -lvp 7777 -e /bin/bash #listen, verbose, port, execute
 ```
 
-<div style="page-break-before: always"></div>
-
+<br>
 <h1 id="reconnaissance-tools">Reconnaissance tools</h1>
 
 ### nmap
@@ -556,13 +555,18 @@ dirsearch -u google.com #directory search
 ### fping
 
 ```bash
-fping -gaq 192.168.1.0/24 #ping connectivity test
+fping -gaq 192.168.1.0/24 #ping connectivity test, use CIDR, show active, quiet mode
+fping -gqs 192.168.1.0/24 #use CIDR, quiet mode, print final statistics
 ```
 
 ### netdiscover
 
-<div style="page-break-before: always"></div>
+```bash
+netdiscover -i eth0 -r 192.168.1.0/24 #active/passive ARP reconnaissance tool
+netdiscover -r 192.168.0.0/24 #scan capture arp packets, discover hosts by range
+```
 
+<br>
 <h1 id="metasploit-framework">Metasploit Framework</h1>
 
 See [cyber/exploitation#metasploit-framework](../../cyber/exploitation.md#metasploit-framework)
@@ -584,7 +588,6 @@ help
 search vsftpd
 use exploit/unix/ftp/vsftpd_234_backdoor
 ```
-
 
 ### msfvenom
 
