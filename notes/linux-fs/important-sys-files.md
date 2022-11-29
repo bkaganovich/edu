@@ -1,10 +1,10 @@
-<!-- important-sys-files.md -->
+<!-- /notes/linux-fs/important-sys-files.md -->
 
 <br>
 
-`Last updated: Mon 28 Nov 2022 16:54 IST`
+`Last updated: Tue 29 Nov 2022 08:58 IST`
 
-<h1 id="important-system-files">Important System Files</h1>
+<h1 id="important-system-files">Important Linux System Files</h1>
 
 ## `/etc/passwd`
 
@@ -19,6 +19,7 @@
 ```
 
 ## `/etc/shadow`
+
 ```bash
 1. username:
 2. $hash type$encrypted password:
