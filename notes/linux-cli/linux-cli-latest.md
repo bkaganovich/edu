@@ -259,7 +259,7 @@ mcrypt -d backup.txt.nc
 <br>
 <h1 id="users-and-groups">Users and groups</h1>
 
-Related [linux-fs/important-sys-files](../../linux-fs/important-sys-files.md)
+Related [linux-fs/important-sys-files](../linux-fs/important-sys-files.md)
 
 ### adduser
 
@@ -297,7 +297,7 @@ usermod -aG sudo username #add user to sudo group
 <br>
 <h1 id="permissions-ownership-and-groups">Permissions, ownership, and groups</h1>
 
-Related [linux-fs/important-sys-files](../../linux-fs/important-sys-files.md)
+Related [linux-fs/important-sys-files](../linux-fs/important-sys-files.md)
 
 ### chmod
 
@@ -501,7 +501,7 @@ scp user@host:/home/user/file.txt destination/
 
 ### nc
 
-See [cyber/exploitation#nc](../../cyber/exploitation.md#nc)
+See [cyber/exploitation#nc](../cyber/exploitation.md#nc)
 
 ```bash
 nc -l -p 4444 #listen for inbound connections, local port
@@ -585,7 +585,7 @@ netdiscover -r 192.168.0.0/24 #scan capture arp packets, discover hosts by range
 <br>
 <h1 id="metasploit-framework">Metasploit Framework</h1>
 
-See [cyber/exploitation#metasploit-framework](../../cyber/exploitation.md#metasploit-framework)
+See [cyber/exploitation#metasploit-framework](../cyber/exploitation.md#metasploit-framework)
 
 ### msfdb
 
@@ -597,7 +597,7 @@ msfdb stop
 
 ### msfconsole
 
-See [cyber/exploitation#msfconsole](../../cyber/exploitation.md#msfconsole)
+See [cyber/exploitation#msfconsole](../cyber/exploitation.md#msfconsole)
 
 ```bash
 help
@@ -607,7 +607,7 @@ use exploit/unix/ftp/vsftpd_234_backdoor
 
 ### msfvenom
 
-See [cyber/exploitation#msfvenom](../../cyber/exploitation.md#msfvenom)
+See [cyber/exploitation#msfvenom](../cyber/exploitation.md#msfvenom)
 
 ```bash
 msfvenom -h
