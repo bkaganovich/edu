@@ -4,7 +4,7 @@
 
 <br>
 
-`Last updated: Tue 29 Nov 2022 08:58 IST`
+`Last updated: Tue 29 Nov 2022 10:52 IST`
 
 <br>
 
@@ -249,6 +249,11 @@ Related [linux-fs/important-sys-files](../linux-fs/important-sys-files.md)
 
 ### useradd
 
+```bash
+useradd -m user1 #create the user's home directory
+useradd -M user2 #do not create the user's home directory
+```
+
 ### groupadd
 
 ### userdel
@@ -466,9 +471,13 @@ ip a
 ### netstat
 
 ```bash
+netstat -a #display all sockets (default: connected)
+netstat -r #display IP routing table
+netstat -i #display interface table
+netstat -l #display listening server sockets, active internet connections
 netstat -at #all tcp
 netstat -au #all udp
-netstat -p #show process
+netstat -p #show PID/name for socket
 ```
 
 ### ssh
