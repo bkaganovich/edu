@@ -20,7 +20,7 @@
 
 <br>
 
-`Last updated: Tue 29 Nov 2022 15:45 IST`
+`Last updated: Wed 30 Nov 2022 11:12 IST`
 
 <br>
 
@@ -87,6 +87,8 @@ echo $HOME #print path to home directory
 ### man
 
 ### history
+
+### which
 
 <br>
 <h1 id="filesystem-navigation">Filesystem navigation</h1>
