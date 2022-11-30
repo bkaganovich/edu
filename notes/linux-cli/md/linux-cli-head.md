@@ -12,5 +12,5 @@
 - [Permissions, ownership, and groups](#permissions-ownership-and-groups)
 - [Processes and system](#processes-and-system)
 - [Networking](#networking)
-- [Reconnaissance tools](../cyber/reconnaissance)
-- [Metasploit Framework](../cyber/exploitation#metasploit-framework)
+- [Reconnaissance tools](../cyber/reconnaissance.md#reconnaissance-tools)
+- [Metasploit Framework](../cyber/exploitation.md#metasploit-framework)
