@@ -20,7 +20,7 @@
 
 <br>
 
-`Last updated: Wed 30 Nov 2022 11:12 IST`
+`Last updated: Wed 30 Nov 2022 11:21 IST`
 
 <br>
 
@@ -80,8 +80,11 @@ pacman -Syu
 echo -e "line1\nline2" #enable interpretation of backslash escapes
 echo -n #do not output trailing newline
 echo *.log #print all .log files in dir
-echo $USER #print username
+echo $USER #print logged in username
 echo $HOME #print path to home directory
+echo $HOSTNAME #print hostname
+echo $SHELL #print shell
+echo $BASH #print location of user bash
 ```
 
 ### man
