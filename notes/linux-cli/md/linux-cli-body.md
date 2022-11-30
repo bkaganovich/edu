@@ -4,7 +4,7 @@
 
 <br>
 
-`Last updated: Wed 30 Nov 2022 12:17 IST`
+`Last updated: Wed 30 Nov 2022 23:17 IST`
 
 <br>
 
@@ -182,6 +182,7 @@ grep -A 2 -B 2 login /var/log/apache2/access.log #2 lines after, 2 before
 ```bash
 cut -b 5 file.txt #get first 5 bytes in each line
 cut -c 2,5,7 file.txt #get chars at 2nd, 5th, 7th place in each line
+cut -d: -f 1 file.txt #get field 1, seperated by delimiter character ":"
 ```
 
 ### sort
