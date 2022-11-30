@@ -6,6 +6,7 @@ pacman
 echo
 man
 history
+which
 pwd
 ls
 tree
