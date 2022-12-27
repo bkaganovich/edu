@@ -30,7 +30,7 @@ DLL dependencies
 
 ## CFF Explorer > Import Directory
 
-![](images/022-12-26-cff-explorer-dll-imports-financials-xls.PNG)
+![](images/2022-12-26-cff-explorer-dll-imports-financials-xls.PNG)
 
 ## CFF Explorer > Resource Editor
 
