@@ -1,0 +1,1 @@
+static-dynamic-malware-analysis-exercise.md
