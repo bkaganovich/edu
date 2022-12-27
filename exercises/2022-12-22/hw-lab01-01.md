@@ -11,7 +11,6 @@ f50e42c8dfaab649bde0398867e930b86c2a599e8db83b8260393082268f2dba  Lab01-01.dll
 
 # Questions:
 
-```
 1.  Upload the files to http://www.VirusTotal.com/ and view the reports. Does 
     either file match any existing antivirus signatures?
 2.  When were these files compiled?
@@ -23,7 +22,7 @@ f50e42c8dfaab649bde0398867e930b86c2a599e8db83b8260393082268f2dba  Lab01-01.dll
 6.  What network-based indicators could be used to find this malware on 
     infected machines?
 7.  What would you guess is the purpose of these files?
-```
+
 
 [1]: https://www.virustotal.com/gui/file/f50e42c8dfaab649bde0398867e930b86c2a599e8db83b8260393082268f2dba/details
 [3]: https://www.virustotal.com/gui/file/f50e42c8dfaab649bde0398867e930b86c2a599e8db83b8260393082268f2dba/behavior
