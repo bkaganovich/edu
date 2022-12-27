@@ -14,7 +14,7 @@ Size 11.16 KB
 
 # Question
 
-```
+
 5.  It’s the middle of the night, suddenly you are receiving an email. Since 
     you are not familiar with the sender, and as a security expert, before opening 
     any attachment, you first want to check it. The email message contains .doc 
@@ -22,14 +22,13 @@ Size 11.16 KB
 
     Use web resources to explain:
 
-    a.  What is the delivery method the attacker is using?
-    b.  How is this file related to the domain - gamestoredownload.download?
-    c.  The final payload of this malware is the file: gamepa.exe, which tries 
+    1.  What is the delivery method the attacker is using?
+    2.  How is this file related to the domain - gamestoredownload.download?
+    3.  The final payload of this malware is the file: gamepa.exe, which tries 
         to steal different types of credentials from the infected host.
-        
-        i. How would you classify this malware?
+        i. How would you classify this malware?  
         ii. Based on hybrid-analysis report, what is the C2 server of this malware?
-```
+
 
 [3]: https://www.virustotal.com/gui/file/05d54ff3fb7e4d8cfaafcbba08ec217c1bff60216e23c3fdca0bbc80c627c9bc
 [4]: https://www.virustotal.com/gui/file/05d54ff3fb7e4d8cfaafcbba08ec217c1bff60216e23c3fdca0bbc80c627c9bc/details
@@ -40,21 +39,21 @@ Size 11.16 KB
 [8]: https://hybrid-analysis.com/sample/05d54ff3fb7e4d8cfaafcbba08ec217c1bff60216e23c3fdca0bbc80c627c9bc/5a86bd357ca3e144126c2435
 
 
-# 5. Virustotal `776c469861c3ac30aa63d9434449498456864653` [[3]]
+# 5. [Virustotal][3]: `776c469861c3ac30aa63d9434449498456864653` [[3]]
 
 `Screenshot 1: overview graph`
 
-![Screenshot 1: graph](screen1.jpeg)
+![Screenshot 1: graph](images/screen1.jpeg)
 
 
-# Details > Basic Properties: [[4]]
+## [virustotal][4] > Details > Basic Properties: [[4]]
 
 ```
 SHA-1	776c469861c3ac30aa63d9434449498456864653
 SHA-256	05d54ff3fb7e4d8cfaafcbba08ec217c1bff60216e23c3fdca0bbc80c627c9bc
 ```
 
-# Details > History: [[4]]
+## [virustotal][4] > Details > History: [[4]]
 
 ```
 Creation Time	2017-09-22 19:02:00 UTC
@@ -69,10 +68,10 @@ Delivered via MS Word (.docx) file attachment in a phishing email.
 
 `Screenshot 2: relations contacted urls, contacted domains, IP addresses`
 
-![Screenshot 2: relations contacted urls, contacted domains, IP addresses](screen2.jpeg)
+![Screenshot 2: relations contacted urls, contacted domains, IP addresses](images/screen2.jpeg)
 
 
-## Relations > Contacted URLs: [[5]]
+## [virustotal][5] > Relations > Contacted URLs: [[5]]
 
 ```
 http://gamestoredownload.download/
@@ -80,14 +79,14 @@ http://gamestoredownload.download/WS-word2017pa.doc
 http://gamestoredownload.download/ws-word2017pa.doc
 ```
 
-## Relations > Contacted Domains: [[5]]
+## [virustotal][5] > Relations > Contacted Domains: [[5]]
 
 ```
 gamestoredownload.download
 nexus.officeapps.live.com
 ```
 
-## Relations > Contacted IP Addresses: [[5]]
+## [virustotal][5] > Relations > Contacted IP Addresses: [[5]]
 
 ```
 52.109.12.21
@@ -102,11 +101,11 @@ nexus.officeapps.live.com
 
 # 5ci. Clasification [[3]]:
 
-## Detection > Security Vendors' Analysis: [[3]]
+## [virustotal][3] > Detection > Security Vendors' Analysis: [[3]]
 
 `Screenshot 3: 33 detections and vendor analysis`
 
-![Screenshot 3: 33 detections and vendor analysis](screen3.jpeg)
+![Screenshot 3: 33 detections and vendor analysis](images/screen3.jpeg)
 
 
 ## 5cii. Based on [hybrid-analysis.com][8] [[8]], what is C2 server of malware?
@@ -149,7 +148,7 @@ Scanned         Detections	    Status	    URL
 2019-11-24	    4/71            -           http://gamestoredownload.download/ws-word2017pa.doc
 ```
 
-## [virustotal][5] > Relations > Conctacted Domains: [[5]]
+## [virustotal][5] > Relations > Contacted Domains: [[5]]
 
 ```
 Domain                          Detections
